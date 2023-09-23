@@ -33,11 +33,16 @@ def isDataValid(data):
     
     #print("data not valid")
     return False
-        
+
+def startContinuousOutput(ser):
+    print("Start Continuous Output Data")
+    ser.write(bytes([0x77, 0x33, 0xC0, 0x42]))
+
 ser = serial.Serial()
 ser.baudrate = 19200
 ser.port = serial_port
 ser.timeout = 1
+timeout_count = 0
 
 try:
     while True:
@@ -46,7 +51,7 @@ try:
             ser.open()
             # Start Continuous Output Data
             if ser.is_open:
-                ser.write(bytes([0x77, 0x33, 0xC0, 0x42]))    
+                startContinuousOutput(ser)
             
             while True:
                 ser.reset_input_buffer()
@@ -57,6 +62,15 @@ try:
                 if isDataValid(s):
                     print()
                     pritnData(s)
+
+                if len(s) == 0:
+                    timeout_count += 1
+
+                    if timeout_count == 30:
+                        startContinuousOutput(ser)
+                        timeout_count = 0
+                else:
+                    timeout_count = 0
                 #time.sleep(0.5)
                 
         except serial.SerialException:
