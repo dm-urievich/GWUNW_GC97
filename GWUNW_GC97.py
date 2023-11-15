@@ -29,7 +29,12 @@ def pritnData(s):
 
 def isDataValid(data):
     if (len(data) >= 31 and data[0] == 0xfe and data[1] == 0xfe and data[2] == 0xfe and data[3] == 0xfe):
-        return True
+        check_sum = 0
+        for i in data[0:30]:
+            check_sum += i
+
+        if check_sum % 256 == data[30]:
+            return True
     
     #print("data not valid")
     return False
