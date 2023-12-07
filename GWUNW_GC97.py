@@ -14,6 +14,7 @@ def pritnData(s):
     current = getLong(s, 12)
     power = getLong(s, 25)
     charge = getLong(s, 17)
+    charge_p = s[5]
     loadtime = getLong(s, 21)
     temperature = getInt(s, 6)
     power_decimal_point = s[29]
@@ -23,7 +24,7 @@ def pritnData(s):
     power_div = pow(10, power_decimal_point)
     print("Power:", power/power_div, "W")
     print("isCharge:", s[16])
-    print("Charge:", charge/1000, "Ah")
+    print("Charge:", charge/1000, "Ah ", charge_p, "%")
     print("Loadtime:", loadtime,"min")
     print("Temperature:", temperature/10,"°C")
 
