@@ -1,6 +1,8 @@
 # GWUNW_GC97
+
+<img src='GWUNW-GC97-200V.png' width='400'>
+
 Python code to get data from GWUNW GC97 battery capacity indicator
-<img src='GWUNW-GC97-200V.png' width='200'>
 
 Link to the device:
 https://aliexpress.com/item/1005003378624928.html
