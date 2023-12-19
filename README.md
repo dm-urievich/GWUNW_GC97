@@ -35,4 +35,4 @@ To get it work you need:
 
 <img src='connection.png' width='400'>
 
-Connect GC97 to UART converter is not a trivial task. You can either make custom micro USB cable or solder wires to dedicated pads on the board.
+Connect GC97 to UART converter is not a trivial task. You can either make a custom micro USB cable or solder wires to dedicated pads on the board.
