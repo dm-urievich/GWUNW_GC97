@@ -26,4 +26,13 @@ All data available over UART is shown on the GC97 display. There is no extra inf
 
 ## Requrements
 
+This software is written for PC. Console application that receive data in a loop and prints battery status. Later I plan to add AppDeamon in Home Assistant to see data on dashboard.
+
+To get it work you need:
+    - GWUNW GC97 coulumb counter
+    - USB-UART converter TTL 3.3V
+    - PC to run application
+
 <img src='connection.png' width='400'>
+
+Connect GC97 to UART converter is not a trivial task. You can either make custom micro USB cable or solder wires to dedicated pads on the board.
